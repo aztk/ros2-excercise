@@ -1,14 +1,14 @@
 # ROS 2演習
 
-WSL2（Ubuntu 20.04）での演習を想定しています。
+Windows 10 WSL2（Ubuntu 20.04）での演習を想定しています。
 
 ## ROS 2の構築
 
 - ROSを利用したことある場合 (利用したことがない場合は不要)
 
-ROSを利用したことがない人は[APTリポジトリの追加](#aptリポジトリの追加) から進めてください。
+ROSを利用したことがない人は「[APTリポジトリの追加](#aptリポジトリの追加)」（次の項目） から進めてください。
 
-.bashrcの以下をコメントアウト
+.bashrcの以下などROSの設定箇所をコメントアウト
 ```text
 #source /opt/ros/noetic/setup.bash
 #source ~/catkin_ws/devel/setup.bash
@@ -69,3 +69,16 @@ ROS_PYTHON_VERSION=3
 ROS_LOCALHOST_ONLY=0 
 ROS_DISTRO=foxy 
 ```
+
+- domain_idの設定
+
+> export ROS_DOMAIN_ID=<your_domain_id>
+
+your_domain_idは0～65532で選択
+
+your_domain_idが１の場合の例
+```
+echo "export ROS_DOMAIN_ID=1">> ~/.bashrc
+```
+
+
