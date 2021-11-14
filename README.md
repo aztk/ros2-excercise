@@ -81,4 +81,8 @@ your_domain_idが１の場合の例
 echo "export ROS_DOMAIN_ID=1">> ~/.bashrc
 ```
 
+変更した設定を反映
+```shell
+source ~/.bashrc
+```
 
