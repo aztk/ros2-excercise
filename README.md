@@ -19,11 +19,22 @@ source ~/.bashrc
 ```
 
 - APTリポジトリの追加・更新
-
+curl等のインストール
 ```shell
 sudo apt update && sudo apt install curl gnupg2 lsb-release
+```
+ROS GPGキーの入手
+```shell
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+
+APTリポジトリの追加・更新
+```shell
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+
+APTリポジトリの更新
+```shell
 sudo apt update
 ```
 
