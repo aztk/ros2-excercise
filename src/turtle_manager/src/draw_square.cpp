@@ -4,7 +4,6 @@
 #include "rclcpp/rclcpp.hpp"
 #include <turtlesim/msg/pose.hpp>
 #include <geometry_msgs/msg/twist.hpp>
-#include <std_srvs/srv/empty.hpp>
 #include <math.h>
 
 turtlesim::msg::Pose::SharedPtr g_pose;
@@ -156,11 +155,7 @@ int main(int argc, char** argv)
   auto nh = rclcpp::Node::make_shared("draw_square");
   auto pose_sub = nh->create_subscription<turtlesim::msg::Pose>("turtle1/pose", 1, std::bind(poseCallback, std::placeholders::_1));
   auto twist_pub = nh->create_publisher<geometry_msgs::msg::Twist>("turtle1/cmd_vel", 1);
-  auto reset = nh->create_client<std_srvs::srv::Empty>("reset");
   auto timer = nh->create_wall_timer(std::chrono::milliseconds(16), [twist_pub](){timerCallback(twist_pub);});
-
-  auto empty = std::make_shared<std_srvs::srv::Empty::Request>();
-  reset->async_send_request(empty);
 
   rclcpp::spin(nh);
 }

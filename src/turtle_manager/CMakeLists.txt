@@ -21,10 +21,9 @@ find_package(geometry_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 
 find_package(std_msgs REQUIRED)
-find_package(std_srvs REQUIRED)
 find_package(turtlesim REQUIRED)
 
-set(dependencies  "geometry_msgs" "rclcpp" "std_msgs" "std_srvs" "turtlesim")
+set(dependencies  "geometry_msgs" "rclcpp" "std_msgs" "turtlesim")
 add_executable(draw_square src/draw_square.cpp)
 ament_target_dependencies(draw_square ${dependencies})
 install(TARGETS   draw_square 
