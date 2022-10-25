@@ -1,6 +1,6 @@
 # ROS 2演習
 
-Windows 10 WSL2（Ubuntu 20.04）での演習を想定しています。
+Windows 10/11 WSL2（Ubuntu 20.04）での演習を想定しています。
 
 ## ROS 2の構築
 
