@@ -23,7 +23,7 @@ curl等のインストール
 ```shell
 sudo apt update && sudo apt install curl gnupg2 lsb-release
 ```
-ROS GPGキーの入手
+ROS GPGキーの入手（反応がない場合はネットワークを変更する：埼玉大学内ネットワークでつながらないことがたまにある）
 ```shell
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
 ```
@@ -38,15 +38,15 @@ APTリポジトリの更新
 sudo apt update
 ```
 
-- ROS 2のインストール (ROS 2 Version Foxy)
+- ROS 2のインストール (ROS 2 Version Galactic)
 
 ```shell
-sudo apt install ros-foxy-desktop
+sudo apt install ros-galactic-desktop
 ```
 
 - 環境設定
 ```shell
-echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -78,7 +78,7 @@ echo "export _colcon_cd_root=~/ros2_install" >> ~/.bashrc
 ROS_VERSION=2  
 ROS_PYTHON_VERSION=3 
 ROS_LOCALHOST_ONLY=0 
-ROS_DISTRO=foxy 
+ROS_DISTRO=galactic
 ```
 
 - domain_idの設定
@@ -97,3 +97,7 @@ echo "export ROS_DOMAIN_ID=1">> ~/.bashrc
 source ~/.bashrc
 ```
 
+インストール確認：先にVcxSrvの起動しておくこと
+```shell
+ros2 run turtlesim turtlesim_node
+```
